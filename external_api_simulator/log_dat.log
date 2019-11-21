@@ -1,0 +1,35 @@
+Array
+(
+    [name] => sampl
+    [status] => 012345678 1
+    [type] => demoA 1
+    [delivery_status] => d1 1
+)
+Array
+(
+    [name] => sampl
+    [status] => 012345678 1
+    [type] => demoA1
+    [delivery_status] => d1
+)
+Array
+(
+    [name] => sampl
+    [status] => 01234567831
+    [type] => demoA1
+    [delivery_status] => d1
+)
+Array
+(
+    [name] => sampl
+    [status] => 01234
+    [type] => demoA1
+    [delivery_status] => d1
+)
+Array
+(
+    [name] => sampl
+    [status] => 0123445
+    [type] => demoA1
+    [delivery_status] => d1
+)
