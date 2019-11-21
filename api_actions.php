@@ -3,12 +3,12 @@
 
 function createTransaction(){
 
-    
+    $dataVal = $_POST;
 $data = array(
-    'name' => 'sampl',
-    'status' => '0123445',
-    'type' => 'demoA1',
-    'delivery_status' => 'd1'
+    'name' => $dataVal['name'],
+    'status' => $dataVal['status'],
+    'type' => $dataVal['type'],
+    'delivery_status' => $dataVal['delivery_status']
 );
 
 $payload = json_encode($data);
@@ -46,11 +46,53 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 function getAllTransactions(){
  echo "inside all";
 
+$ch = curl_init('http://localhost/custom_rest_php_api/external_api_simulator/all_trans.php');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+
+
+// Set HTTP Header for POST request 
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json')
+);
+  //echo " inside create";
+
+  $server_output = curl_exec($ch);
+  $err = curl_error($ch);
+  if($err){
+      echo "curl err:";
+      echo $err;
+  }
+
+  echo $server_output;
+  curl_close ($ch);
+
 }
 
 function getTransactionDetailById($id){
  echo " inside detail";
  echo "Id for: $id";
+ $ch = curl_init('http://localhost/custom_rest_php_api/external_api_simulator/specific_trans.php?trans_id='.$id);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+
+
+// Set HTTP Header for POST request 
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json')
+);
+  //echo " inside create";
+
+  $server_output = curl_exec($ch);
+  $err = curl_error($ch);
+  if($err){
+      echo "curl err:";
+      echo $err;
+  }
+
+  echo $server_output;
+  curl_close ($ch);
+
 }
 
 function deleteTransaction(){

@@ -33,3 +33,31 @@ Array
     [type] => demoA1
     [delivery_status] => d1
 )
+Array
+(
+    [name] => sampl
+    [status] => 0123445
+    [type] => demoA1
+    [delivery_status] => d1
+)
+Array
+(
+    [name] => RAM
+    [status] => SAMPL
+    [type] => CHLK 
+    [delivery_status] => 1234
+)
+Array
+(
+    [name] => RAM
+    [status] => SAMPL
+    [type] => CHLK 
+    [delivery_status] => 1234
+)
+Array
+(
+    [name] => shrea
+    [status] => om
+    [type] => sf
+    [delivery_status] => sdfs
+)
