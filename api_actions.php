@@ -99,6 +99,28 @@ function deleteTransaction(){
  echo "inside delete";
  if(!(empty($_REQUEST['trans_id']))){
     //echo  $_REQUEST['trans_id'];
+     $id = $_REQUEST['trans_id'];
+    $ch = curl_init('http://localhost/custom_rest_php_api/external_api_simulator/delete_trans.php?trans_id='.$id);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+
+// Set HTTP Header for POST request 
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json')
+);
+  //echo " inside create";
+
+  $server_output = curl_exec($ch);
+  $err = curl_error($ch);
+  if($err){
+      echo "curl err:";
+      echo $err;
+  }
+
+  echo $server_output;
+  curl_close ($ch);
+
  }
 
 }
