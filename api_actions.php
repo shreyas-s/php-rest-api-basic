@@ -112,6 +112,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   //echo " inside create";
 
   $server_output = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   $err = curl_error($ch);
   if($err){
       echo "curl err:";
