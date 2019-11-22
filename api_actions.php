@@ -127,7 +127,15 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 }
 
 function modifyTransaction(){
-    echo "inside PUT";
+  $putParams = json_decode(file_get_contents("php://input"),true);
+  $data = array("name" => $putParams['name']);
+$transId = $_GET['trans_id'];
+$ch = curl_init('http://localhost/custom_rest_php_api/external_api_simulator/update_trans.php?trans_id='.$transId);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+$response = curl_exec($ch);
 }
 
 function patchModifyTransaction(){
